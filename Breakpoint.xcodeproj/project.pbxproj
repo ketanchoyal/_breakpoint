@@ -21,6 +21,7 @@
 		971695A821C4363F0057610D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971695A721C4363F0057610D /* InsetTextField.swift */; };
 		971695AA21C446970057610D /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971695A921C446970057610D /* ShadowView.swift */; };
 		971695AC21C447D70057610D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971695AB21C447D70057610D /* AuthService.swift */; };
+		971A936C21C59AA600906E0D /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971A936B21C59AA600906E0D /* MeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		971695A721C4363F0057610D /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		971695A921C446970057610D /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		971695AB21C447D70057610D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		971A936B21C59AA600906E0D /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		DC4B198DB3A205F9D974ACE2 /* Pods_Breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				9716958A21C417820057610D /* GroupVC.swift */,
 				971695A321C4351B0057610D /* AuthVC.swift */,
 				971695A521C435410057610D /* LoginVC.swift */,
+				971A936B21C59AA600906E0D /* MeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				971A936C21C59AA600906E0D /* MeVC.swift in Sources */,
 				971695A421C4351B0057610D /* AuthVC.swift in Sources */,
 				9716958B21C417820057610D /* GroupVC.swift in Sources */,
 				971695A621C435410057610D /* LoginVC.swift in Sources */,

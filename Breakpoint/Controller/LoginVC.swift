@@ -33,24 +33,30 @@ class LoginVC: UIViewController {
             
             AuthService.instance.loginUser(withEmail: emailField.text!, andPassword: passwordField.text!) { (success, error) in
                 if success {
-                    self.dismiss(animated: true, completion: nil)
+                    self.toStartScreen()
+                    //self.dismiss(animated: true, completion: nil)
                 } else {
                     print(error?.localizedDescription as Any)
                 }
                 
                 AuthService.instance.registerUser(withEmail: self.emailField.text!, andPassword: self.passwordField.text!, userCreationComplete: { (success, error) in
                     if success {
-                        self.dismiss(animated: true, completion: nil)
+                        self.toStartScreen()
+                        //self.dismiss(animated: true, completion: nil)
                     } else {
                         print(error?.localizedDescription as Any)
                     }
                 })
-                
             }
-            
         }
-        
     }
+    
+    func toStartScreen() {
+        let mainBoard = storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
+        
+        present(mainBoard!, animated: true, completion: nil)
+    }
+    
 }
 
 extension LoginVC : UITextFieldDelegate {
