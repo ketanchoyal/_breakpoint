@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  Breakpoint
 //
 //  Created by Ketan Choyal on 14/12/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class FeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
