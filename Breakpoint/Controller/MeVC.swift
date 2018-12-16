@@ -17,7 +17,6 @@ class MeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
     @IBAction func logoutBtnPressed(_ sender: Any) {
