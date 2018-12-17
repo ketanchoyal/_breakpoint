@@ -15,6 +15,8 @@ class DataService {
     static let instance = DataService()
     
     var feeds = [Feed]()
+    var userEmails = [String]()
+    var userIds = [String]()
     
     public private(set) var REF_BASE = DB_BASE
     public private(set) var REF_USERS = DB_BASE.child("users")
@@ -64,6 +66,39 @@ class DataService {
                 self.feeds.append(newfeed)
             }
             feedHandler(true)
+        }
+    }
+    
+    func getEmailsandIds(forSearchQuery query : String, handler : @escaping (_ complete : Bool) -> ()) {
+        userEmails.removeAll()
+        userIds.removeAll()
+        REF_USERS.observe(.value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else {
+                handler(false)
+                return }
+            
+            for user in userSnapshot {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                let key = user.key
+                
+                if email.contains(query) == true && email != Auth.auth().currentUser?.email {
+                    self.userEmails.append(email)
+                    self.userIds.append(key)
+                }
+            }
+            handler(true)
+        }
+    }
+    
+    func createGroup(withTitle title : String, withDescription description : String, forUids uids : [String], groupCreated : @escaping (_ completed : Bool) -> ()) {
+        var uidArray = uids
+        uidArray.append((Auth.auth().currentUser?.uid)!)
+        REF_GROUPS.childByAutoId().updateChildValues(["title" : title, "description" : description, "members" : uidArray]) { (error, ref) in
+            if error == nil {
+                groupCreated(true)
+            } else {
+                groupCreated(false)
+            }
         }
     }
     
