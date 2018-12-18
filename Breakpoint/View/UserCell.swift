@@ -15,7 +15,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userEmaillabel: UILabel!
     @IBOutlet weak var checkImage: UIImageView!
-    public private(set) var userKey:String!
+    public private(set) var userId: String!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -34,12 +34,12 @@ class UserCell: UITableViewCell {
         
     }
     
-    func configureCell(profileImage image : UIImage, email : String, key : String,isChecked : Bool) {
+    func configureCell(profileImage image : UIImage, email : String, key : String, isChecked : Bool) {
         //showing = isChecked
         userImage.image = image
         userEmaillabel.text = email
         checkImage.isHidden = !isChecked
-        userKey = key
+        userId = key
     }
 
 }

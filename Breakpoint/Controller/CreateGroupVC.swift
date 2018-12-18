@@ -27,9 +27,12 @@ class CreateGroupVC: UIViewController {
         emailSearchTextField.delegate = self
         
         doneBtn.isHidden = true
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DataService.instance.userEmails.removeAll()
         emailSearchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
     }
     
     @objc func textFieldDidChange() {
@@ -89,12 +92,12 @@ extension CreateGroupVC : UITableViewDelegate, UITableViewDataSource {
         if !chosenUserEmailArray.contains(cell.userEmaillabel.text!) {
             
             chosenUserEmailArray.append(cell.userEmaillabel.text!)
-            chosenUserIdArray.append(cell.userKey)
+            chosenUserIdArray.append(cell.userId)
             groupMemberLabel.text = chosenUserEmailArray.joined(separator: ", ")
             doneBtn.isHidden = false
         } else {
             chosenUserEmailArray = chosenUserEmailArray.filter({ $0 != cell.userEmaillabel.text! })
-            chosenUserIdArray = chosenUserIdArray.filter({$0 != cell.userKey})
+            chosenUserIdArray = chosenUserIdArray.filter({$0 != cell.userId})
             if chosenUserEmailArray.count >= 1 {
                 groupMemberLabel.text = chosenUserEmailArray.joined(separator: ", ")
             } else {
